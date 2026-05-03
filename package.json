@@ -5,15 +5,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qianjiachun/douyuEx.git"
+    "url": "git+https://github.com/iamsxm/douyuEx.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/qianjiachun/douyuEx/issues"
+    "url": "https://github.com/iamsxm/douyuEx/issues"
   },
-  "homepage": "https://github.com/qianjiachun/douyuEx#readme",
+  "homepage": "https://github.com/iamsxm/douyuEx#readme",
   "dependencies": {
     "uglify-js": "^3.17.4"
   }

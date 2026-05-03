@@ -35,7 +35,7 @@ function initPkg_VideoTools_Joysound_Func() {
                 dom.innerHTML = icon_joysound_on;
             }
         } else {
-            openPage("https://src.douyuex.com/src/joysound.user.js");
+            showMessage("未安装Joysound音效增强脚本", "warning");
         }
     })
 }
