@@ -48,6 +48,9 @@
 // @connect      jsdelivr.net
 // @connect      githubusercontent.com
 // @connect      github.com
+// @connect      doseeing.com
+// @connect      shadiao.app
+// @connect      fz996.com
 // ==/UserScript==
 function init() {
   initPkg_Shield_RemoveRepeatedDanmaku_ScriptHook();

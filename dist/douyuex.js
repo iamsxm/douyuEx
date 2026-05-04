@@ -48,6 +48,9 @@
 // @connect      jsdelivr.net
 // @connect      githubusercontent.com
 // @connect      github.com
+// @connect      doseeing.com
+// @connect      shadiao.app
+// @connect      fz996.com
 // ==/UserScript==
 function init() {
     initPkg_Shield_RemoveRepeatedDanmaku_ScriptHook();
@@ -8952,11 +8955,18 @@ function checkUpdate_Src() {
     return new Promise((resolve, reject) => {
         GM_xmlhttpRequest({
             method: "GET",
-            url: `https://raw.githubusercontent.com/iamsxm/douyuEx/main/dist/douyuex_version.txt?t=` + new Date().getTime(),
+            url: `https://github.com/iamsxm/douyuEx/raw/refs/heads/master/dist/douyuex_version.txt?t=` + new Date().getTime(),
             responseType: "text",
             onload: function(response) {
-                const txt = response.response;
-                if (void 0 != txt) if (txt.trim() != curVersion) resolve([ true, txt.trim() ]);
+                if (200 !== response.status) {
+                    resolve(false);
+                    return;
+                }
+                const txt = (response.response || "").trim();
+                if (/^\d{4}\.\d{2}\.\d{2}\.\d+$/.test(txt)) if (txt !== curVersion) {
+                    resolve([ true, txt ]);
+                    return;
+                }
                 resolve(false);
             },
             onerror: function(err) {
@@ -8987,7 +8997,7 @@ async function Update_checkVersion(isShowNotUpdate = false) {
 }
 
 function Update_openUpdatePage() {
-    openPage("https://github.com/iamsxm/douyuEx", true);
+    openPage("https://github.com/iamsxm/douyuEx/raw/refs/heads/master/dist/douyuex.user.js", true);
 }
 
 function Update_showTip(a) {
@@ -9006,7 +9016,7 @@ function Update_showTip(a) {
 }
 
 function Update_showMessage() {
-    let msg = `【版本更新】最新版本：${lastestVersion}，点击<a href="https://github.com/iamsxm/douyuEx" target="_blank">GitHub仓库</a>更新`;
+    let msg = `【版本更新】最新版本：${lastestVersion}，点击<a href="https://github.com/iamsxm/douyuEx/raw/refs/heads/master/dist/douyuex.user.js" target="_blank">GitHub仓库</a>更新`;
     showMessage(msg, "error", {
         timeout: 50
     });
